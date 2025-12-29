@@ -21,10 +21,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Debug files
+      - name: Show repo root contents
         run: |
+          echo "PWD:"
           pwd
+          echo ""
+          echo "ROOT LS:"
           ls -la
+          echo ""
+          echo "FIND package.json:"
+          find . -maxdepth 4 -name package.json -print
 
       - name: Setup Node
         uses: actions/setup-node@v4

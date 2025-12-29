@@ -21,20 +21,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug files
+        run: |
+          pwd
+          ls -la
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-- name: Install
-  working-directory: .
-  run: npm ci
+      - name: Install
+        run: npm ci
 
-- name: Build
-  working-directory: .
-  run: npm run build
-
+      - name: Build
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
